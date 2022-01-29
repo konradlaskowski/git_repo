@@ -48,6 +48,6 @@ class bill:
 
 
 new_bill = bill()
-new_bill.create_bills_file("all_bills3")
+new_bill.create_bills_file("all_bills4")
 dict_bill = new_bill.input_and_return_dictionary()
 new_bill.add_to_file_as_list(dict_bill)
