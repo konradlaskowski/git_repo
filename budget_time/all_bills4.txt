@@ -1,3 +1,4 @@
 Created: 29.01.2022
 All bills: 
 Rachunek: {'sum': '50', 'category': 'transport', 'which_store': 'orlen', 'date': '29.01.2022'} 
+Rachunek: {'sum': '50', 'category': 'spo', 'which_store': 'bie', 'date': '11.12.2021'} 
