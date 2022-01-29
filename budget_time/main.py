@@ -15,21 +15,35 @@ class bill:
         try:
             with open(file_name, 'x', encoding='utf8') as f:
                 f.write("")
+                print(f"File {file_name} created")
                 f.close()
-#'Created: '+ today_date + '\nAll bills: \n'
 
         except FileExistsError:
             print('You are adding a bill to an existing file named: '+ file_name)
 
 
-    def read_list_from_file(self):
+    def return_list_from_file(self):
         bills_file = open(file_name,'r', encoding='utf8')
+
         if bills_file.readable():
-            file_text = bills_file.readlines()
-            selected_js = ast.literal_eval(file_text[1])
-            print(type(selected_js))
-            print(selected_js['sum'])
-            for sum in sums
+            file_list = bills_file.readlines()
+        bills_file.close()
+        return file_list
+
+
+    def return_sum_all_bills(self):
+        bills_file = open(file_name, 'r', encoding='utf8')
+
+        if bills_file.readable():
+            file_line_list = bills_file.readlines()
+            sum_all_bills = 0
+
+            for line in file_line_list:
+                line_js = ast.literal_eval(line)
+                sum_all_bills += int(line_js['sum'])
+        bills_file.close()
+        return sum_all_bills
+
 
 
     def input_and_return_dictionary(self):
@@ -53,8 +67,15 @@ class bill:
             print("You can't write in this file")
         bills_file.close()
 
-
 new_bill = bill()
-new_bill.create_bills_file("all_bills6")
-new_bill.read_list_from_file()
-new_bill.add_to_file_as_list(new_bill.input_and_return_dictionary())
+new_bill.create_bills_file("all_bills_file")
+#
+while True:
+    new_bill.add_to_file_as_list(new_bill.input_and_return_dictionary())
+    print(new_bill.return_list_from_file())
+    print(f"Suma wszystkich pragonów: {new_bill.return_sum_all_bills()} zł.")
+
+
+
+
+

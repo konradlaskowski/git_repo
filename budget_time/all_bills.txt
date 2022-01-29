@@ -1,3 +1,0 @@
-Created: 29.01.2022
-All bills: 
-Rachunek: {'sum': '50', 'category': 'spo', 'which_store': 'bie', 'date': '11.01.2022'} 

@@ -1,5 +1,0 @@
-Created: 29.01.2022
-All bills: 
-Rachunek: {'sum': '50', 'category': 'g', 'which_store': 'bie', 'date': '11.11.1993'} 
-git nie jest trudny
-ale trzeba go praktykowac
