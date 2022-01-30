@@ -2,11 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import random
+import time
 
 option = webdriver.ChromeOptions()
-option.add_argument("-incognito")
+#option.add_argument("-incognito")
 #option.add_argument("--headless")
-#option.add_argument("disable-gpu")
+option.add_argument("disable-gpu")
 
 
 mails =["konrad374@gmail.com","grazyna123@gmail.com",'zenek234@gmail.com',"jacek456@gmail.com"]
@@ -29,12 +30,17 @@ while b > 0:
     textboxes2 = browser.find_element(By.CLASS_NAME, "quantumWizTextinputPapertextareaInput")
 
     submit = browser.find_element(By.CLASS_NAME, "appsMaterialWizButtonPaperbuttonContent")
-    confirmation_message = browser.find_element(By.CLASS_NAME, "freebirdFormviewerViewResponseConfirmationMessage").getText()
+    def on_next_page():
+        confirmation_message = browser.find_element(By.XPATH, "//div[@class='freebirdFormviewerViewResponseConfirmationMessage']").text
+        print(confirmation_message)
+
 
     textboxes.send_keys(mails[a])
     textboxes2.send_keys(names[c])
     submit.click()
-    print(confirmation_message)
+    #time.sleep(1)
+    on_next_page()
+    
 
-    #browser.close()
+    browser.close()
 
