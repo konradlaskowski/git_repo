@@ -1,0 +1,2 @@
+{'sum': '12', 'category': 'spoż', 'which_store': 'biedra', 'date': '29.01.2022'}
+{'sum': '32', 'category': 'aaa', 'which_store': 'aaa', 'date': 'aaa'}

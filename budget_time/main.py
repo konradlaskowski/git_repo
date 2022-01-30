@@ -1,4 +1,5 @@
 from datetime import date
+from selenium import webdriver
 import ast
 today = date.today()
 today_date = today.strftime("%d.%m.%Y")
@@ -7,6 +8,9 @@ today_date = today.strftime("%d.%m.%Y")
 class bill:
     file_name = "all_bill_file.txt"
     bills_list = []
+
+    def send_bill_to_google_sheet(self, formURL, sum, category, which_store, date):
+
 
     def create_bills_file(self, name):
         global file_name
@@ -22,7 +26,7 @@ class bill:
             print('You are adding a bill to an existing file named: '+ file_name)
 
 
-    def return_list_from_file(self):
+    def return_file_as_list(self):
         bills_file = open(file_name,'r', encoding='utf8')
 
         if bills_file.readable():
@@ -46,7 +50,7 @@ class bill:
 
 
 
-    def input_and_return_dictionary(self):
+    def input_and_return_dict(self):
         sum = input('Podaj kwote: ')
         category = input('Podaj kategorie: ')
         which_store = input('gdzie zrobiono zakupy: ')
@@ -55,7 +59,7 @@ class bill:
         return final_dict
 
 
-    def add_to_file_as_list(self, bill):
+    def add_to_file(self, bill):
         global file_name
         global bills_list
 
@@ -67,12 +71,15 @@ class bill:
             print("You can't write in this file")
         bills_file.close()
 
+
+
 new_bill = bill()
 new_bill.create_bills_file("all_bills_file")
-#
+
 while True:
-    new_bill.add_to_file_as_list(new_bill.input_and_return_dictionary())
-    print(new_bill.return_list_from_file())
+    bill_as_dict = new_bill.input_and_return_dict()
+    new_bill.add_to_file(bill_as_dict)
+    print(new_bill.return_file_as_list())
     print(f"Suma wszystkich pragonów: {new_bill.return_sum_all_bills()} zł.")
 
 
