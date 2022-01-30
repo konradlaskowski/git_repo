@@ -108,8 +108,8 @@ class bill:
             global browser
             confirmation_message = browser.find_element(By.XPATH, "//div[@class='freebirdFormviewerViewResponseConfirmationMessage']").text
             if confirmation_message == "Twoja odpowiedź została zapisana.":
-                print("Udało się!")
-                print(f"Rachunek na kwote: {sume} PLN\nZ kategorii: {category}\nZrobiony w: {which_store}\nDnia: {date}\nOpis: {descr}\n ZOSTAŁ DODANY DO GOOGLE FORM")
+                print("-------\nUdało się!\n-------")
+                print(f"Kwota: {sume} PLN\nKategoria: {category}\nSklep: {which_store}\nData: {date}\nOpis: {descr}\n RACHUNEK ZOSTAŁ DODANY DO GOOGLE FORM")
         except:
             print("błąd podczas wysylania")
         finally:
