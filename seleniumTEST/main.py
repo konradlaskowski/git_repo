@@ -2,12 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import random
-import time
 
 option = webdriver.ChromeOptions()
 #option.add_argument("-incognito")
-#option.add_argument("--headless")
-option.add_argument("disable-gpu")
+option.add_argument("--headless")
+#option.add_argument("disable-gpu")
 
 
 mails =["konrad374@gmail.com","grazyna123@gmail.com",'zenek234@gmail.com',"jacek456@gmail.com"]
@@ -30,16 +29,23 @@ while b > 0:
     textboxes2 = browser.find_element(By.CLASS_NAME, "quantumWizTextinputPapertextareaInput")
 
     submit = browser.find_element(By.CLASS_NAME, "appsMaterialWizButtonPaperbuttonContent")
-    def on_next_page():
-        confirmation_message = browser.find_element(By.XPATH, "//div[@class='freebirdFormviewerViewResponseConfirmationMessage']").text
-        print(confirmation_message)
+    def on_next_page(mail, name):
+        try:
+            confirmation_message = browser.find_element(By.XPATH, "//div[@class='freebirdFormviewerViewResponseConfirmationMessage']").text
+            if confirmation_message == "Twoja odpowiedź została zapisana.":
+                print("Udało się!")
+                print(f"Email: {mail} i Nazwa: {name} dodano do google form")
+        except:
+            print("błąd podczas wysylania")
 
 
-    textboxes.send_keys(mails[a])
-    textboxes2.send_keys(names[c])
+
+    choesed_mail = mails[a]
+    choesed_name = names[c]
+    textboxes.send_keys(choesed_mail)
+    textboxes2.send_keys(choesed_name)
     submit.click()
-    #time.sleep(1)
-    on_next_page()
+    on_next_page(choesed_mail, choesed_name)
     
 
     browser.close()
