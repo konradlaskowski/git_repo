@@ -1,16 +1,32 @@
-from datetime import date
-from selenium import webdriver
 import ast
+
+#date
+from datetime import date
 today = date.today()
 today_date = today.strftime("%d.%m.%Y")
 
+#selenium
+from selenium import webdriver
+option = webdriver.ChromeOptions()
+option.add_argument("--headless")
 
+sum = 0
+category = ""
+which_store = ""
+date = ""
+descr = ""
+
+#apk_core
 class bill:
     file_name = "all_bill_file.txt"
     bills_list = []
 
-    def send_bill_to_google_sheet(self, formURL, sum, category, which_store, date):
-
+    def send_bill_to_google_sheet(self, sum, category, which_store, date,opis):
+        formURL = "https://docs.google.com/forms/d/e/1FAIpQLScd-bzDGa8E4g1qwIzk-ijl6y0LMRb0N2eAGNQ3-Zi1TfebCw/viewform"
+        browser = webdriver.Chrome(executable_path="chromedriver.exe", options=option)
+        full_url = f"{formURL}?entry.2080550111={sum}&entry.468806156={category}&entry.1402840532={which_store}&entry.196396817={date}&entry.1982941332={opis}"
+        browser.get(full_url)
+        #print(full_url)
 
     def create_bills_file(self, name):
         global file_name
@@ -51,6 +67,11 @@ class bill:
 
 
     def input_and_return_dict(self):
+        global sum
+        global category
+        global which_store
+        global date
+        global descr
         sum = input('Podaj kwote: ')
         category = input('Podaj kategorie: ')
         which_store = input('gdzie zrobiono zakupy: ')
@@ -81,7 +102,7 @@ while True:
     new_bill.add_to_file(bill_as_dict)
     print(new_bill.return_file_as_list())
     print(f"Suma wszystkich pragonów: {new_bill.return_sum_all_bills()} zł.")
-
+    new_bill.send_bill_to_google_sheet(sum, category, which_store, date, "brak")
 
 
 
