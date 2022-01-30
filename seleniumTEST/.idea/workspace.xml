@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf72eca-8bac-451d-845e-616bcb76ad2d" name="Changes" comment="automated form working with selenium">
-      <change beforePath="$PROJECT_DIR$/../budget_time/all_bills_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../budget_time/all_bills_file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../budget_time/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../budget_time/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
