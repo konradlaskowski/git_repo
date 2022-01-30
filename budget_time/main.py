@@ -11,7 +11,8 @@ from selenium.webdriver.chrome.service import Service #for error repairing
 from selenium.webdriver.common.by import By
 
 option = webdriver.ChromeOptions()
-option.add_argument("-incognito")
+option.add_argument("--headless")
+#option.add_argument("-incognito")
 #option.add_argument("disable-gpu")
 
 sume = 0
@@ -22,7 +23,7 @@ descr = ""
 
 #apk_core
 class bill:
-    file_name = "all_bill_file.txt"
+    file_name = "bill_file.txt"
     bills_list = []
 
     def send_bill_to_google_sheet(self, sume, category, which_store, date, descr):
@@ -106,10 +107,11 @@ class bill:
     def on_next_page(self):
         try:
             global browser
+            global file_name
             confirmation_message = browser.find_element(By.XPATH, "//div[@class='freebirdFormviewerViewResponseConfirmationMessage']").text
             if confirmation_message == "Twoja odpowiedź została zapisana.":
                 print("-------\nUdało się!\n-------")
-                print(f"Kwota: {sume} PLN\nKategoria: {category}\nSklep: {which_store}\nData: {date}\nOpis: {descr}\n RACHUNEK ZOSTAŁ DODANY DO GOOGLE FORM")
+                print(f"Kwota: {sume} PLN\nKategoria: {category}\nSklep: {which_store}\nData: {date}\nOpis: {descr}\n-------\n * RACHUNEK ZOSTAŁ DODANY DO GOOGLE FORM\n** RACHUNEK ZOSTAŁ ZAPISANY DO PLIKU ->{file_name}")
         except:
             print("błąd podczas wysylania")
         finally:
@@ -120,9 +122,11 @@ new_bill = bill()
 new_bill.create_bills_file("all_bills_file")
 
 while True:
+    global file_name
     bill_as_dict = new_bill.input_and_return_dict()
     new_bill.add_to_file(bill_as_dict)
-    print(f"Suma wszystkich pragonów: {new_bill.return_sum_all_bills()} zł.")
+    print(f"Suma wszystkich pragonów w -> {file_name}: {new_bill.return_sum_all_bills()} zł.")
+    print("Wysyłanie do Google Form...")
     new_bill.send_bill_to_google_sheet(sume, category, which_store, date, "brak")
     new_bill.on_next_page()
 

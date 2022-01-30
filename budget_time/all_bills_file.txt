@@ -34,3 +34,7 @@
 {'sum': '22', 'category': 'spożywcze', 'which_store': 'biednonka', 'date': '22.01.2021'}
 {'sum': '300', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '20.01.2021'}
 {'sum': '30', 'category': 'spo', 'which_store': 'bie', 'date': '20.21.2021'}
+{'sum': '30', 'category': 'KL', 'which_store': 'JJH', 'date': '20.20.2021'}
+{'sum': '30', 'category': 'kl', 'which_store': 'biedronka', 'date': '20.21.2021'}
+{'sum': '21', 'category': 'spo', 'which_store': 'bied', 'date': '21.01.2021'}
+{'sum': '22', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '20.01.2021'}
