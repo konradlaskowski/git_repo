@@ -7,6 +7,7 @@ today_date = today.strftime("%d.%m.%Y")
 
 #selenium
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service #for error repairing
 option = webdriver.ChromeOptions()
 option.add_argument("--headless")
 
@@ -23,9 +24,12 @@ class bill:
 
     def send_bill_to_google_sheet(self, sum, category, which_store, date,opis):
         formURL = "https://docs.google.com/forms/d/e/1FAIpQLScd-bzDGa8E4g1qwIzk-ijl6y0LMRb0N2eAGNQ3-Zi1TfebCw/formResponse"
-        browser = webdriver.Chrome(executable_path="chromedriver.exe", options=option)
+        s = Service("chromedriver.exe")
+        browser = webdriver.Chrome(service=s, options=option)
         full_url = f"{formURL}?entry.2080550111={sum}&entry.468806156={category}&entry.1402840532={which_store}&entry.196396817={date}&entry.1982941332={opis}"
         browser.get(full_url)
+
+
         #print(full_url)
 
     def create_bills_file(self, name):

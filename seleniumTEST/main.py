@@ -25,14 +25,16 @@ while b > 0:
 
     browser.get("https://docs.google.com/forms/d/e/1FAIpQLSfg-un5ZEzQe7y_EOZVeTrVGa1sCX-MjYDkfPqNvOLqTRNl6Q/viewform")
 
-    textboxes=browser.find_element(By.CLASS_NAME, "quantumWizTextinputPaperinputPlaceholder")
-    #textboxes2=browser.find_element(By.CLASS_NAME, "quantumWizTextinputPapertextareaInput")
+    textboxes = browser.find_element(By.CLASS_NAME, "quantumWizTextinputPaperinputInput")
+    textboxes2 = browser.find_element(By.CLASS_NAME, "quantumWizTextinputPapertextareaInput")
 
-    #submit=browser.find_element(By.CLASS_NAME, "appsMaterialWizButtonPaperbuttonContent")
+    submit = browser.find_element(By.CLASS_NAME, "appsMaterialWizButtonPaperbuttonContent")
+    confirmation_message = browser.find_element(By.CLASS_NAME, "freebirdFormviewerViewResponseConfirmationMessage").getText()
 
-    print(textboxes)
-    textboxes[0].send_keys(mails[a])
-    #textboxes2[0].send_keys(names[c])
-    #submit.click()
+    textboxes.send_keys(mails[a])
+    textboxes2.send_keys(names[c])
+    submit.click()
+    print(confirmation_message)
 
+    #browser.close()
 
