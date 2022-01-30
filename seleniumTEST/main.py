@@ -5,8 +5,8 @@ import random
 
 option = webdriver.ChromeOptions()
 #option.add_argument("-incognito")
-option.add_argument("--headless")
-#option.add_argument("disable-gpu")
+#option.add_argument("--headless")
+option.add_argument("disable-gpu")
 
 
 mails =["konrad374@gmail.com","grazyna123@gmail.com",'zenek234@gmail.com',"jacek456@gmail.com"]
@@ -37,6 +37,8 @@ while b > 0:
                 print(f"Email: {mail} i Nazwa: {name} dodano do google form")
         except:
             print("błąd podczas wysylania")
+        finally:
+            browser.close()
 
 
 
@@ -48,5 +50,5 @@ while b > 0:
     on_next_page(choesed_mail, choesed_name)
     
 
-    browser.close()
+    #browser.close()
 
