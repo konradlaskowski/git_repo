@@ -6,3 +6,4 @@
 {'sum': '20', 'category': 'transport', 'which_store': 'biedronka', 'date': '20.01.2021'}
 {'sum': '777', 'category': 'dewocjonalia', 'which_store': 'sklep u alladyna', 'date': '07.07.2007'}
 {'sum': '30', 'category': 'abo', 'which_store': 'bied', 'date': '22.01.2021'}
+{'sum': '20', 'category': 'spo', 'which_store': 'bie', 'date': '20.01.2021'}

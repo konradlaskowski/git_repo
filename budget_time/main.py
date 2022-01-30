@@ -9,7 +9,7 @@ today_date = today.strftime("%d.%m.%Y")
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service #for error repairing
 option = webdriver.ChromeOptions()
-option.add_argument("--headless")
+option.add_argument("-incognito")
 
 sum = 0
 category = ""
