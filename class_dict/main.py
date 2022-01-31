@@ -35,7 +35,7 @@ class Shortcut:
             file = dict_file.read()
             if len(file) > 0:
                 self.dictionary = ast.literal_eval(file)
-        long = input("Pelna nazwa: ")
+        long = input(f'Podaj pelna nazwe dla  " {short} "  : ')
         self.dictionary[short] = long
 
         try:
@@ -55,9 +55,12 @@ class Shortcut:
                 self.dictionary = ast.literal_eval(file)
         print(f'-Dodaj skrot do slownika: {self.name}')
         short = input("Skrot: ")
-        long = input("Pelna nazwa: ")
-
-        self.dictionary[short] = long
+        long = input(f'Podaj pelna nazwe dla  " {short} "  : ')
+        if short == "/back" or long == "/back":
+            ### go to adding bill function
+            pass
+        else:
+            self.dictionary[short] = long
 
         try:
             dict_file = open(self.file_name, 'wt')
@@ -75,15 +78,17 @@ class Shortcut:
             return long
         except:
             if len(short) < 4:
-                answer = input(f'"{short}" ma mniej niz 4 znaki, czy chcesz dodać skrót? t/n: ')
+                answer = input(f'***  " {short} "  ma mniej niz 4 znaki, czy chcesz dodać skrót? t/n: ')
                 if answer == 't' or answer == 'T':
                     self.add_shortcut_auto(short)
                     return self.dictionary[short]
+                else:
+                    return short
             elif short == "/add":
-                print("Przeszedłes do funkcji dodawania skrotow do slownkika")
+                print("***  Przeszedłes do funkcji dodawania skrotow do slownkika")
                 self.add_shortcut_manual()
             else:
-                return  short
+                return short
 
 
 while True:
