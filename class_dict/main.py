@@ -68,10 +68,10 @@ class Shortcut:
             print("Unable to write to file")
 
     def use_shortcut(self, input0):
+        short = input0
         try:
-            short = input0
             long = self.dictionary[short]
-            print(f'uzyłeś skrótu do: {long}')
+            print(f'*** Uzyłeś skrótu do: {long}')
             return long
         except:
             if len(short) < 4:
@@ -79,13 +79,14 @@ class Shortcut:
                 if answer == 't' or answer == 'T':
                     self.add_shortcut_auto(short)
                     return self.dictionary[short]
-                else:
-                    return short
             elif short == "/add":
+                print("Przeszedłes do funkcji dodawania skrotow do slownkika")
                 self.add_shortcut_manual()
+            else:
+                return  short
 
 
+while True:
+    kategoria = Shortcut("kategorie")
 
-kategoria = Shortcut("kategorie")
-
-print(kategoria.use_shortcut(input("podaj kategorie: ")))
+    print(kategoria.use_shortcut(input("podaj kategorie: ")))
