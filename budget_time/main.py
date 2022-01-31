@@ -15,7 +15,7 @@ option.add_argument("--headless")
 #option.add_argument("-incognito")
 #option.add_argument("disable-gpu")
 
-sume = 0
+amount = 0
 category = ""
 which_store = ""
 date = ""
@@ -26,7 +26,7 @@ class bill:
     file_name = "bill_file.txt"
     bills_list = []
 
-    def send_bill_to_google_sheet(self, sume, category, which_store, date, descr):
+    def send_bill_to_google_sheet(self, amount, category, which_store, date, descr):
         global browser
         #form_link_Type = "viewform"
         #form_link_Type = "formResponse"
@@ -34,7 +34,7 @@ class bill:
         s = Service("chromedriver.exe")
         browser = webdriver.Chrome(service=s, options=option)
 
-        full_url = f"{formURL}?entry.2080550111={sume}&entry.468806156={category}&entry.1402840532={which_store}&entry.196396817={date}&entry.1982941332={descr}"
+        full_url = f"{formURL}?entry.2080550111={amount}&entry.468806156={category}&entry.1402840532={which_store}&entry.196396817={date}&entry.1982941332={descr}"
         browser.get(full_url)
         submit = browser.find_element(By.CLASS_NAME, "appsMaterialWizButtonPaperbuttonContent")
         time.sleep(2)
@@ -79,18 +79,22 @@ class bill:
 
 
     def input_and_return_dict(self):
-        global sume
+        global amount
         global category
         global which_store
         global date
         global descr
-        sume = input('Podaj kwote: ')
+        amount = input('Podaj kwote: ')
         category = input('Podaj kategorie: ')
         which_store = input('gdzie zrobiono zakupy: ')
         date = input('Podaj date dd.MM.yyyy: ')
-        final_dict = {'sum': str(sume), 'category': str(category), 'which_store': str(which_store), 'date': str(date)}
+        descr = input('Opis: ')
+        final_dict = {'sum': str(amount), 'category': str(category), 'which_store': str(which_store), 'date': str(date), 'descr': str(descr)}
         return final_dict
 
+    def check_shortcuts(self, input, short, full):
+        if input == short:
+            return full
 
     def add_to_file(self, bill):
         global file_name
@@ -104,14 +108,14 @@ class bill:
             print("You can't write in this file")
         bills_file.close()
 
-    def on_next_page(self):
+    def confirmation_page(self):
         try:
             global browser
             global file_name
             confirmation_message = browser.find_element(By.XPATH, "//div[@class='freebirdFormviewerViewResponseConfirmationMessage']").text
             if confirmation_message == "Twoja odpowiedź została zapisana.":
                 print("-------\nUdało się!\n-------")
-                print(f"Kwota: {sume} PLN\nKategoria: {category}\nSklep: {which_store}\nData: {date}\nOpis: {descr}\n-------\n * RACHUNEK ZOSTAŁ DODANY DO GOOGLE FORM\n** RACHUNEK ZOSTAŁ ZAPISANY DO PLIKU ->{file_name}")
+                print(f"Kwota: {amount} PLN\nKategoria: {category}\nSklep: {which_store}\nData: {date}\nOpis: {descr}\n-------\n * RACHUNEK ZOSTAŁ DODANY DO GOOGLE FORM\n** RACHUNEK ZOSTAŁ ZAPISANY DO PLIKU ->{file_name}")
         except:
             print("błąd podczas wysylania")
         finally:
@@ -127,8 +131,8 @@ while True:
     new_bill.add_to_file(bill_as_dict)
     print(f"Suma wszystkich pragonów w -> {file_name}: {new_bill.return_sum_all_bills()} zł.")
     print("Wysyłanie do Google Form...")
-    new_bill.send_bill_to_google_sheet(sume, category, which_store, date, "brak")
-    new_bill.on_next_page()
+    new_bill.send_bill_to_google_sheet(amount, category, which_store, date, "brak")
+    new_bill.confirmation_page()
 
 
 
