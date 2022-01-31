@@ -82,7 +82,9 @@ class Shortcut:
         short = input("Skrot: ")
         long = input(f'Podaj pelna nazwe dla  " {short} "  : ')
         if short == "/back" or long == "/back":
+
             ### go to adding bill function
+
             pass
         else:
             self.dictionary[short] = long
@@ -115,11 +117,6 @@ class Shortcut:
             else:
                 return short
 
-
-while True:
-    kategoria = Shortcut("kategorie")
-
-    print(kategoria.use_shortcut(input("podaj kategorie: ")))
 
 
 
@@ -188,8 +185,12 @@ class bill:
         global date
         global descr
         amount = input('Podaj kwote: ')
-        category = input('Podaj kategorie: ')
-        which_store = input('gdzie zrobiono zakupy: ')
+
+        cat = Shortcut("category")
+        category = cat.use_shortcut(input('Podaj kategorie: '))
+        w_s = Shortcut('which_store')
+        which_store = w_s.use_shortcut(input('gdzie zrobiono zakupy: '))
+
         date = input('Podaj date dd.MM.yyyy: ')
         descr = input('Opis: ')
         final_dict = {'sum': str(amount), 'category': str(category), 'which_store': str(which_store), 'date': str(date), 'descr': str(descr)}

@@ -1,3 +1,4 @@
 {'sum': '12', 'category': 'nnn', 'which_store': 'aaaaaa', 'date': 'aaa'}
 {'sum': '32', 'category': 'wwwww', 'which_store': 'wwwwwwww', 'date': 'wwwwwwwwwww'}
 {'sum': '30', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '20.01.2021'}
+{'sum': '23', 'category': 'pewne wplywy', 'which_store': 'biedronka', 'date': '22.01.2021', 'descr': ''}

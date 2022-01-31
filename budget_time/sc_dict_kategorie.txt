@@ -1,0 +1,1 @@
+{'pw': 'pewne wplywy'}
