@@ -1,13 +1,15 @@
 
 class shortcut:
-    category_sc_dict = {'s': 'spozywcze', 't': 'transport', 'j': 'jedzenie + dom', 'pw': 'pewne wplywy', 'w': 'wyglad', 'e': 'elektronika', 'd': 'datki', 'a': 'abonamenty i subskrybcje', 'ed': 'edukacja', 'el': 'elektronika'}
-    shop_sc_dict = {}
-    date_sc_dict = {}
+    def __init__(self, type):
+        dictionary
+    #category_sc_dict = {'s': 'spozywcze', 't': 'transport', 'j': 'jedzenie + dom', 'pw': 'pewne wplywy', 'w': 'wyglad', 'e': 'elektronika', 'd': 'datki', 'a': 'abonamenty i subskrybcje', 'ed': 'edukacja', 'el': 'elektronika'}
+    #shop_sc_dict = {}
+    #date_sc_dict = {}
 
 
-    def return_long_category_ver(self):
+    def return_long_category_ver(self, input):
         try:
-            short = input("podaj kategorie: ")
+            short = input
             long = self.category_sc_dict[short]
             print(long)
             return long
@@ -45,4 +47,4 @@ def adding_to_dict(dict):
 
 
 sc = shortcut()
-
+category = sc.return_long_category_ver(input('podaj kategorie: '))
