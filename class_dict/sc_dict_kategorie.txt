@@ -1,1 +1,1 @@
-{'a': 'abonamenty i subskrypcje', 's': 'spozywcze', 'wd': 'wyposazenie domu', 'r': 'rachunki', 't': 'transport'}
+{'a': 'abonamenty i subskrypcje', 's': 'spozywcze', 'wd': 'wyposazenie domu', 'r': 'rachunki', 't': 'transport', 'f': 'finansowe'}
