@@ -26,16 +26,15 @@ date = ""
 descr = ""
 
 
-
 # apk_core
-class bill:
+class Bill:
     file_name = "bill_file.txt"
     bills_list = []
 
     def send_bill_to_google_sheet(self, amount, category, which_store, date, descr):
         global browser
-        #form_link_Type = "viewform"
-        #form_link_Type = "formResponse"
+        # form_link_Type = "viewform"
+        # form_link_Type = "formResponse"
         formURL = "https://docs.google.com/forms/d/e/1FAIpQLScd-bzDGa8E4g1qwIzk-ijl6y0LMRb0N2eAGNQ3-Zi1TfebCw/viewform"
         service = Service("chromedriver.exe")
         browser = webdriver.Chrome(service = service, options = option)
@@ -137,7 +136,7 @@ class bill:
             browser.close()
 
 
-new_bill = bill()
+new_bill = Bill()
 new_bill.create_bills_file("all_bills_file")
 
 while True:
