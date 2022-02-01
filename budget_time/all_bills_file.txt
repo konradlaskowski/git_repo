@@ -17,3 +17,4 @@
 {'sum': '33', 'category': 'spożywcze', 'which_store': 'lidl', 'date': '01.02.2022', 'descr': ''}
 {'sum': '22', 'category': 'transport', 'which_store': 'orlen', 'date': '01.02.2022', 'descr': 'o'}
 {'sum': '44', 'category': 'spożywcze', 'which_store': 'kaufland', 'date': '29.01.2022', 'descr': 'o'}
+{'sum': '44', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '01.02.2022', 'descr': 'brak'}
