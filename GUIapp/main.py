@@ -1,9 +1,11 @@
 import tkinter
 from tkinter import *
+from tkinter import messagebox
+
 root = tkinter.Tk()
 
 root.geometry("200x250")
-root.resizable(0,0)
+root.resizable(False,False)
 root.title('Oś Budżetu')
 var = StringVar()
 root.iconbitmap('budget.ico')
@@ -28,11 +30,11 @@ class Label_Textbox():
 
 
 
-amount = Label_Textbox('Kwota:')
-category = Label_Textbox('Kategoria:')
-which_store = Label_Textbox('Gdzie:')
-date = Label_Textbox('Data:')
-
+amount = Label_Textbox('Kwota')
+category = Label_Textbox('Kategoria')
+which_store = Label_Textbox('Gdzie')
+date = Label_Textbox('Data')
+descr = Label_Textbox('Opis')
 
 
 
@@ -43,7 +45,8 @@ def funkcjaPrzycisku():
     category.print_var()
     which_store.print_var()
     date.print_var()
-
+    descr.print_var()
+    messagebox.showinfo("Oś Budżetu: Success", "Twoje dane zostały przesłane do Google")
 
 
 b = tkinter.Button(
@@ -54,7 +57,7 @@ b = tkinter.Button(
     fg="white",
     command=funkcjaPrzycisku,
 )
-b.place(x=10, y=170, width=180, height=30)
+b.place(x=10, y=210, width=180, height=30)
 
 
 
