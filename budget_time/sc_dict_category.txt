@@ -1,1 +1,1 @@
-{'pw': 'pewne wplywy'}
+{'tra': 'transport', 's': 'spo¿ywcze', 'j': 'jedzenie + dom', 'wd': 'wyposazenie domu', 'roz': 'rozrywka + jedzenie na miescie', 't': 'transport'}

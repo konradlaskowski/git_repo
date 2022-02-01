@@ -2,3 +2,18 @@
 {'sum': '32', 'category': 'wwwww', 'which_store': 'wwwwwwww', 'date': 'wwwwwwwwwww'}
 {'sum': '30', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '20.01.2021'}
 {'sum': '23', 'category': 'pewne wplywy', 'which_store': 'biedronka', 'date': '22.01.2021', 'descr': ''}
+{'sum': '12', 'category': 'trans', 'which_store': 'biedronka', 'date': '12.01.2022', 'descr': 'asdf'}
+{'sum': '23', 'category': 'transport', 'which_store': 'biedronka', 'date': '235667', 'descr': 'ghi'}
+{'sum': '55', 'category': 'spożywcze', 'which_store': 'lidl', 'date': '01.02.2022', 'descr': ''}
+{'sum': '44', 'category': 'jedzenie + dom', 'which_store': 'kaufland', 'date': '-2', 'descr': ''}
+{'sum': '22', 'category': 'jedzenie + dom', 'which_store': 'netto', 'date': '-1', 'descr': ''}
+{'sum': '22', 'category': 'wyposazenie domu', 'which_store': 'ikea', 'date': '-1', 'descr': ''}
+{'sum': '44', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '2022-01-30', 'descr': ''}
+{'sum': '55', 'category': 'jedzenie + dom', 'which_store': 'lidl', 'date': '29.01.2022', 'descr': ''}
+{'sum': '22', 'category': 'd', 'which_store': 'biedronka', 'date': '01.02.2022', 'descr': ''}
+{'sum': '22', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '01.02.2022', 'descr': ''}
+{'sum': '2', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '01.02.2022', 'descr': ''}
+{'sum': '22', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '01.02.2022', 'descr': ''}
+{'sum': '33', 'category': 'spożywcze', 'which_store': 'lidl', 'date': '01.02.2022', 'descr': ''}
+{'sum': '22', 'category': 'transport', 'which_store': 'orlen', 'date': '01.02.2022', 'descr': 'o'}
+{'sum': '44', 'category': 'spożywcze', 'which_store': 'kaufland', 'date': '29.01.2022', 'descr': 'o'}
