@@ -33,7 +33,8 @@ def send_bill_to_google_sheet(amount0, category0, which_store0, date0, descr0):
     # form_link_Type = "viewform"
     # form_link_Type = "formResponse"
     form_url = "https://docs.google.com/forms/d/e/" \
-               "1FAIpQLScd-bzDGa8E4g1qwIzk-ijl6y0LMRb0N2eAGNQ3-Zi1TfebCw/viewform"
+               "1FAIpQLScd-bzDGa8E4g1qwIzk-ijl6y0LMRb0N2eAGNQ3-Zi1TfebCw" \
+               "/viewform"
     service = Service("chromedriver.exe")
     browser = webdriver.Chrome(service=service, options=option)
 
@@ -66,7 +67,9 @@ class Bill:
                 f.close()
 
         except FileExistsError:
-            print("You are adding a bill to an existing file named: " + file_name)
+            print(
+                "You are adding a bill to an existing file named: " + file_name
+            )
 
     def return_file_as_list(self):
         bills_file = open(file_name, "r", encoding="utf8")
@@ -121,7 +124,6 @@ class Bill:
         if input == short:
             return full
 
-
     def add_to_file(self, bill):
         global file_name
         global bills_list
@@ -140,14 +142,22 @@ class Bill:
         try:
             confirmation_message = browser.find_element(
                 By.XPATH,
-                "//div[@class='freebirdFormviewerViewResponseConfirmationMessage']",
+                "//div[@class="
+                "'freebirdFormviewerViewResponseConfirmationMessage']",
             ).text
             if confirmation_message == "Twoja odpowiedź została zapisana.":
                 print("-------\nUdało się!\n-------")
                 print(
-                    f"Kwota: {amount} PLN\nKategoria: {category}\nSklep: {which_store}\nData: {date}\nOpis: {descr}\n-------\n * RACHUNEK ZOSTAŁ DODANY DO GOOGLE FORM\n** RACHUNEK ZOSTAŁ ZAPISANY DO PLIKU ->{file_name}"
+                    f"Kwota: {amount} PLN\n"
+                    f"Kategoria: {category}\n"
+                    f"Sklep: {which_store}\n"
+                    f"Data: {date}\n"
+                    f"Opis: {descr}\n"
+                    f"-------\n"
+                    f" * RACHUNEK ZOSTAŁ DODANY DO GOOGLE FORM\n"
+                    f"** RACHUNEK ZOSTAŁ ZAPISANY DO PLIKU ->{file_name}"
                 )
-        except:
+        except ConnectionError:
             print("błąd podczas wysylania")
         finally:
             browser.close()
@@ -161,7 +171,9 @@ while True:
     bill_as_dict = new_bill.input_and_return_dict()
     new_bill.add_to_file(bill_as_dict)
     print(
-        f"Suma wszystkich pragonów w -> {file_name}: {new_bill.return_sum_all_bills()} zł."
+        f"Suma wszystkich pragonów w ->"
+        f" {file_name}:"
+        f" {new_bill.return_sum_all_bills()} zł."
     )
     print("Wysyłanie do Google Form...")
     send_bill_to_google_sheet(amount, category, which_store, date, descr)
