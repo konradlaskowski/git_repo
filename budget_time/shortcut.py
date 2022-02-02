@@ -1,5 +1,5 @@
-# short_cut class
 import ast
+from datetime import date, timedelta
 
 
 class Shortcut:
@@ -20,9 +20,9 @@ class Shortcut:
                 dict_file.write(str(self.dictionary))
                 dict_file.close()
 
-            except:
+            except FileExistsError:
                 print("Unable to write to file")
-        except:
+        except FileExistsError:
             # create fille if nescesery
             dict_file = open(self.file_name, "a+")
             dict_file.write(str(self.dictionary))
@@ -43,7 +43,7 @@ class Shortcut:
             dict_file.write(str(self.dictionary))
             dict_file.close()
 
-        except:
+        except FileExistsError:
             print("Unable to write to file")
 
     def add_shortcut_manual(self):
@@ -67,7 +67,7 @@ class Shortcut:
             dict_file.write(str(self.dictionary))
             dict_file.close()
 
-        except:
+        except FileExistsError:
             print("Unable to write to file")
 
     def use_shortcut(self, input0):
@@ -76,10 +76,11 @@ class Shortcut:
             long = self.dictionary[short]
             print(f"*** Uzyłeś skrótu do: {long}")
             return long
-        except:
+        except Warning:
             if len(short) < 4:
                 answer = input(
-                    f'***  " {short} "  ma mniej niz 4 znaki, czy chcesz dodać skrót? t/n: '
+                    f'***  " {short} "'
+                    f"  ma mniej niz 4 znaki, czy chcesz dodać skrót? t/n: "
                 )
                 if answer == "t" or answer == "T":
                     self.add_shortcut_auto(short)
@@ -87,13 +88,14 @@ class Shortcut:
                 else:
                     return short
             elif short == "/add":
-                print("***  Przeszedłes do funkcji dodawania skrotow do slownkika")
+                print(
+                    "***  Przeszedłes do funkcji"
+                    " dodawania skrotow do slownkika"
+                )
                 self.add_shortcut_manual()
             else:
                 return short
 
-
-from datetime import date, timedelta
 
 today = date.today()
 
@@ -117,8 +119,6 @@ def spec_cmd(input0):
         date1 = date0.strftime("%d.%m.%Y")
         print(date1)
         return date1
-
-
 
     else:
         return input0
