@@ -1,1 +1,1 @@
-{'bie': 'biedronka', 'dht': 'dht tarchomin', 'l': 'lidl', 'k': 'kaufland', 'n': 'netto', 'b': 'biedronka', 'orl': 'orlen'}
+{'bie': 'biedronka', 'dht': 'dht tarchomin', 'l': 'lidl', 'k': 'kaufland', 'n': 'netto', 'b': 'biedronka', 'orl': 'orlen', 'c': 'circleK'}

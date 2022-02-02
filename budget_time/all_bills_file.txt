@@ -19,3 +19,6 @@
 {'sum': '44', 'category': 'spożywcze', 'which_store': 'kaufland', 'date': '29.01.2022', 'descr': 'o'}
 {'sum': '44', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '01.02.2022', 'descr': 'brak'}
 {'sum': '22', 'category': 'spożywcze', 'which_store': 'biedronka', 'date': '01.02.2022', 'descr': 'brak'}
+{'sum': '22', 'category': 'b', 'which_store': 'biedronka', 'date': '02.02.2022', 'descr': 'brak'}
+{'sum': '22', 'category': 'transport', 'which_store': 'circleK', 'date': '02.02.2022', 'descr': 'brak'}
+{'sum': '22', 'category': 'spożywcze', 'which_store': 'circleK', 'date': '/add', 'descr': 'dd'}

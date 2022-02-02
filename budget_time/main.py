@@ -28,25 +28,32 @@ descr = ""
 
 
 # apk_core
+def send_bill_to_google_sheet(amount0, category0, which_store0, date0, descr0):
+    global browser
+    # form_link_Type = "viewform"
+    # form_link_Type = "formResponse"
+    form_url = "https://docs.google.com/forms/d/e/" \
+               "1FAIpQLScd-bzDGa8E4g1qwIzk-ijl6y0LMRb0N2eAGNQ3-Zi1TfebCw/viewform"
+    service = Service("chromedriver.exe")
+    browser = webdriver.Chrome(service=service, options=option)
+
+    full_url = f"{form_url}?" \
+               f"entry.2080550111={amount0}" \
+               f"&entry.468806156={category0}" \
+               f"&entry.1402840532={which_store0}" \
+               f"&entry.196396817={date0}" \
+               f"&entry.1982941332={descr0}"
+    browser.get(full_url)
+    submit = browser.find_element(
+        By.CLASS_NAME, "appsMaterialWizButtonPaperbuttonContent"
+    )
+    time.sleep(2)
+    submit.click()
+
+
 class Bill:
     file_name = "bill_file.txt"
     bills_list = []
-
-    def send_bill_to_google_sheet(self, amount, category, which_store, date, descr):
-        global browser
-        # form_link_Type = "viewform"
-        # form_link_Type = "formResponse"
-        formURL = "https://docs.google.com/forms/d/e/1FAIpQLScd-bzDGa8E4g1qwIzk-ijl6y0LMRb0N2eAGNQ3-Zi1TfebCw/viewform"
-        service = Service("chromedriver.exe")
-        browser = webdriver.Chrome(service=service, options=option)
-
-        full_url = f"{formURL}?entry.2080550111={amount}&entry.468806156={category}&entry.1402840532={which_store}&entry.196396817={date}&entry.1982941332={descr}"
-        browser.get(full_url)
-        submit = browser.find_element(
-            By.CLASS_NAME, "appsMaterialWizButtonPaperbuttonContent"
-        )
-        time.sleep(2)
-        submit.click()
 
     def create_bills_file(self, name):
         global file_name
@@ -114,6 +121,7 @@ class Bill:
         if input == short:
             return full
 
+
     def add_to_file(self, bill):
         global file_name
         global bills_list
@@ -156,5 +164,5 @@ while True:
         f"Suma wszystkich pragonów w -> {file_name}: {new_bill.return_sum_all_bills()} zł."
     )
     print("Wysyłanie do Google Form...")
-    new_bill.send_bill_to_google_sheet(amount, category, which_store, date, descr)
+    send_bill_to_google_sheet(amount, category, which_store, date, descr)
     new_bill.confirmation_page()
